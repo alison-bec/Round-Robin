@@ -1,6 +1,4 @@
-//import java.util.Queue;
 import java.util.Scanner;
-//import java.util.List;
 import java.util.ArrayList;
 
 class Proceso implements Runnable {
