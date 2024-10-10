@@ -44,7 +44,10 @@ public class RoundRobin {
     private static int contadorId = 1; 
     private static int tiempoGlobal = 0;  
 
-    private static Queue<Proceso> colaMedianoPlazo = new LinkedList<>();
+    //ahora esta sera mediano plazo
+    private static ProcessQueue<Proceso> colaMedianoPlazo = new ProcessQueue<Proceso>();
+
+    //private static Queue<Proceso> colaMedianoPlazo = new LinkedList<>();
     private static Queue<Proceso> colaCortoPlazo = new LinkedList<>();
     private static Queue<Proceso> colaCompletados = new LinkedList<>();
     private static List<Proceso> listaProcesosPendientes = new ArrayList<>();
@@ -257,6 +260,23 @@ public class RoundRobin {
 
         System.out.println("------------------------------------------------------------------------------------------");
     }
+
+
+    private static void imprimirCola(ProcessQueue<Proceso> cola, String nombreCola) {
+        System.out.println("\n" + nombreCola + ":");
+        System.out.println("------------------------------------------------------------------------------------------");
+        System.out.printf("| %-5s | %-7s | %-7s | %-12s | %-10s | %-12s |\n", 
+                          "ID", "Nombre", "Tamaño", "Tiempo Total", "Restante", "Tiempo Llegada");
+        System.out.println("------------------------------------------------------------------------------------------");
+
+        for (Proceso p : cola) {
+            System.out.printf("| %-5s | %-7s | %-7d | %-12d | %-10d | %-12d |\n",
+                              p.id, p.nombre, p.tamano, p.tiempoEjecucion, p.tiempoRestante, p.tiempoLlegada);
+        }
+
+        System.out.println("------------------------------------------------------------------------------------------");
+    }
+
 
     private static void mostrarTiempos() {
         System.out.println("\n********* Tiempos Finales de los Procesos *********");
