@@ -83,7 +83,7 @@ public class ProcessQueue<E> implements Iterable<E>{
         rear = null;
     }
 
-
+/* 
     public static void main(String[] args) {
         ProcessQueue<Proceso> cola = new ProcessQueue<>();
         cola.enqueue(new Proceso("P1", "Process1", 100, 10, 5, 0));
@@ -95,7 +95,7 @@ public class ProcessQueue<E> implements Iterable<E>{
                               p.id, p.nombre, p.tamano, p.tiempoEjecucion, p.tiempoRestante, p.tiempoLlegada);
         }
     }
-
+*/
 
     
     
