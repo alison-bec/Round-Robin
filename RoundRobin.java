@@ -1,7 +1,6 @@
-import java.util.LinkedList;
-import java.util.Queue;
+//import java.util.Queue;
 import java.util.Scanner;
-import java.util.List;
+//import java.util.List;
 import java.util.ArrayList;
 
 class Proceso implements Runnable {
@@ -49,7 +48,7 @@ public class RoundRobin {
     private static ProcessQueue<Proceso> colaCompletados = new ProcessQueue<Proceso>();
     private static ProcessQueue<Proceso> colaProcesosNuevos = new ProcessQueue<Proceso>();
     private static ProcessQueue<Proceso> colaReinsertados = new ProcessQueue<Proceso>();
-    private static List<Proceso> listaProcesosPendientes = new ArrayList<>();
+    private static ArrayList<Proceso> listaProcesosPendientes = new ArrayList<>();
 
 
     public static void main(String[] args) {
@@ -220,7 +219,7 @@ public class RoundRobin {
         }
     }
 
-    private static void imprimirLista(List<Proceso> lista, String nombreLista) {
+    private static void imprimirLista(ArrayList<Proceso> lista, String nombreLista) {
         System.out.println("\n" + nombreLista + ":");
         System.out.println("------------------------------------------------------------------------------------------");
         System.out.printf("| %-5s | %-7s | %-7s | %-12s | %-10s | %-12s |\n", 
@@ -242,21 +241,6 @@ public class RoundRobin {
 
         System.out.println("\n--- Cola de Procesos Listos para Ejecución ---");
         imprimirCola(colaCortoPlazo, "Cola de procesos listos para ejecución");
-    }
-
-    private static void imprimirCola(Queue<Proceso> cola, String nombreCola) {
-        System.out.println("\n" + nombreCola + ":");
-        System.out.println("------------------------------------------------------------------------------------------");
-        System.out.printf("| %-5s | %-7s | %-7s | %-12s | %-10s | %-12s |\n", 
-                          "ID", "Nombre", "Tamaño", "Tiempo Total", "Restante", "Tiempo Llegada");
-        System.out.println("------------------------------------------------------------------------------------------");
-
-        for (Proceso p : cola) {
-            System.out.printf("| %-5s | %-7s | %-7d | %-12d | %-10d | %-12d |\n",
-                              p.id, p.nombre, p.tamano, p.tiempoEjecucion, p.tiempoRestante, p.tiempoLlegada);
-        }
-
-        System.out.println("------------------------------------------------------------------------------------------");
     }
 
 
