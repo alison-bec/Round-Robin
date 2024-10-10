@@ -4,10 +4,12 @@ import java.util.Iterator;
 public class ProcessQueue<E> implements Iterable<E>{
     private Node <E> front;
     private Node <E> rear;
+    private int size;
 
     public ProcessQueue(){
         front = null;
         rear = null;
+        size = 0;
     }
 
 
@@ -48,6 +50,11 @@ public class ProcessQueue<E> implements Iterable<E>{
             rear.next = newNode;
             rear = newNode;
         }
+        size++;
+    }
+
+    public int size(){
+        return size;
     }
 
     public boolean add(E data){
@@ -61,6 +68,7 @@ public class ProcessQueue<E> implements Iterable<E>{
         }else{
             E data = front.data;
             front = front.next;
+            size--;
             return data;
         }
     }

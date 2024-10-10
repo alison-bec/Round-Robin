@@ -44,15 +44,13 @@ public class RoundRobin {
     private static int contadorId = 1; 
     private static int tiempoGlobal = 0;  
 
-    //ahora esta sera mediano plazo
     private static ProcessQueue<Proceso> colaMedianoPlazo = new ProcessQueue<Proceso>();
-
-    //private static Queue<Proceso> colaMedianoPlazo = new LinkedList<>();
-    private static Queue<Proceso> colaCortoPlazo = new LinkedList<>();
-    private static Queue<Proceso> colaCompletados = new LinkedList<>();
+    private static ProcessQueue<Proceso> colaCortoPlazo = new ProcessQueue<Proceso>();
+    private static ProcessQueue<Proceso> colaCompletados = new ProcessQueue<Proceso>();
+    private static ProcessQueue<Proceso> colaProcesosNuevos = new ProcessQueue<Proceso>();
+    private static ProcessQueue<Proceso> colaReinsertados = new ProcessQueue<Proceso>();
     private static List<Proceso> listaProcesosPendientes = new ArrayList<>();
-    private static Queue<Proceso> colaProcesosNuevos = new LinkedList<>();
-    private static Queue<Proceso> colaReinsertados = new LinkedList<>(); 
+
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
